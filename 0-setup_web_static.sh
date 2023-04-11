@@ -16,8 +16,8 @@ sudo mkdir -p /data/web_static/releases/test/
 # Create a html file to test Nginx configuration
 html="/data/web_static/releases/test/index.html"
 sudo touch $html
-sudo printf "<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<title>Test Page</title>\n\t</head>\n\t<body>\n\t\t<h1>Holberton School!</h1>" > $html
-sudo printf "\n\t\t<p>This is a test page for Nginx configuration.</p>\n\t</body>\n</html>" >> $html
+printf "<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<title>Test Page</title>\n\t</head>\n\t<body>\n\t\t<h1>Holberton School!</h1>" > $html
+printf "\n\t\t<p>This is a test page for Nginx configuration.</p>\n\t</body>\n</html>" >> $html
 
 # Create a symbolic link
 link_="/data/web_static/current"
