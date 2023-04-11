@@ -16,7 +16,10 @@ def do_pack():
     date_string = now.strftime("%Y%m%d%H%M%S")
     new_dir_name = "web_static_{}.tgz".format(date_string)
     local(f'tar czf {new_dir_name} *')
-    local(f'mv {new_dir_name} ..')
+    local(f'cd ../')
+    local(f'mkdir versions')
+    local(f'cd /web_static')
+    local(f'mv {new_dir_name} ../versions')
     local("cd ../")
 
     if os.path.exists(new_dir_name):
