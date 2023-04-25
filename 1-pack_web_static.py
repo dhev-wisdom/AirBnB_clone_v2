@@ -2,25 +2,22 @@
 # Fabric script that generates a .tgz archive from the contents of web_static
 
 from fabric.api import local
+from fabric.decorators import task
 from datetime import datetime
 import os
 
 
+@task
 def do_pack():
     """ Method generates a .tgz archive contents of the web_static """
 
-    local("cd /web_static") # move to the web_static dir
+    local("mkdir -p versions")
 
     
     now = datetime.now()
     date_string = now.strftime("%Y%m%d%H%M%S")
-    new_dir_name = "web_static_{}.tgz".format(date_string)
-    local(f'tar czf {new_dir_name} *')
-    local(f'cd ../')
-    local(f'mkdir versions')
-    local(f'cd /web_static')
-    local(f'mv {new_dir_name} ../versions')
-    local("cd ../")
+    new_dir_name = "versions/web_static_{}.tgz".format(date_string)
+    local(f'tar cvzf {new_dir_name} web_static')
 
     if os.path.exists(new_dir_name):
         return new_dir_name

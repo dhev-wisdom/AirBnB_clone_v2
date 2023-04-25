@@ -26,9 +26,9 @@ link_to="/data/web_static/releases/test/"
 if [ -L $link_ ]
 then
 	sudo rm -f "$link_"
-else
-	sudo ln -s "$link_to" "$link_"
 fi
+
+sudo ln -s "$link_to" "$link_"
 
 # Give ownership of /data/ folder to ubuntu user and group
 sudo chown -R ubuntu:ubuntu /data/
