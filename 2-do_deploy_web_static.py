@@ -2,14 +2,14 @@
 # Write a Fabric script (based on the file 1-pack_web_static.py)
 # that distributes an archive to your web servers, using the function do_deploy
 
-from versions import web_static_20230411135756.tgz as static
 from fabric.api import put, env, run
+from os import path
 
 
-env.hosts = [34.232.53.58, 54.80.207.49]
+env.hosts = ["34.232.53.58", "54.80.207.49"]
 
 def do_deploy(archive_path):
-    if archive_path:
+    if path.exists(archive_path):
         put(archive_path, "/tmp/")
 
         # Extract the contents of the archive into the new dir
