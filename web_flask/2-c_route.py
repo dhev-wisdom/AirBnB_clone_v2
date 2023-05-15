@@ -21,7 +21,7 @@ def hello_hbnb():
 
 @app.route('/c/<text>', strict_slashes=False)
 def c_is_what(text):
-    """C is what igain..."""
+    """C is what again..."""
     text = text.replace('_', ' ')
     return f"C {text}"
 
