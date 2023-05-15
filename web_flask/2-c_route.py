@@ -23,7 +23,7 @@ def hello_hbnb():
 def c_is_what(text):
     """C is what again..."""
     text = text.replace('_', ' ')
-    return f"C {text}"
+    return 'C {}'.format(text)
 
 
 if __name__ == "__main__":
