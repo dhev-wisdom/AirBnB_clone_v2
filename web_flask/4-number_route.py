@@ -23,22 +23,23 @@ def hello_hbnb():
 def c_is_what(text):
     """C is what again..."""
     text = text.replace('_', ' ')
-    return f"C {text}"
+    return "C {}".format(text)
 
 
-@app.route('/python/<text>', strict_slashes=False)
+@app.route('/python')
 @app.route('/python/')
+@app.route('/python/<text>', strict_slashes=False)
 def python_is_what(text='is cool'):
     """Python is what again..."""
     text = text.replace('_', ' ')
-    return f"Python {text}"
+    return "Python {}".format(text)
 
 
 @app.route('/number/<int:num>', strict_slashes=False)
 def show_number(num):
     """n is a Number"""
     if isinstance(num, int):
-        return f"{num} is a number"
+        return "{} is a number".format(num)
 
 
 if __name__ == "__main__":

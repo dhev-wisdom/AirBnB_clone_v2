@@ -26,8 +26,9 @@ def c_is_what(text):
     return f"C {text}"
 
 
-@app.route('/python/<text>', strict_slashes=False)
+@app.route('/python')
 @app.route('/python/')
+@app.route('/python/<text>', strict_slashes=False)
 def python_is_what(text='is cool'):
     """Python is what again..."""
     text = text.replace('_', ' ')
